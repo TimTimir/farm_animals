@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-public class BuyAnimalControllerTest {
+public class BuyAnimalControllerITest {
 
     @Autowired
     private MockMvc mockMvc;
