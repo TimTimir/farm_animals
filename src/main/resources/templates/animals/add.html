@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add animal to the farm</title>
+</head>
+<body>
+    <h1>Add animal to the farm</h1>
+
+	<form method="post" th:action="@{/ui/add}" th:object="${animal}">
+		<input type="text" th:field="*{species}" id="species" placeholder="Species of the animal" size="60"></input>
+		<input type="text" th:field="*{eid}" id="eid" placeholder="EID of the animal" size="60"></input>
+		<input type="text" th:field="*{seller}" id="seller" placeholder="Who sold the animal" size="60"></input>
+		
+		<input type="submit" value="Save" id="save"/>
+	</form>
+</body>
+</html>
