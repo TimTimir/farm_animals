@@ -99,6 +99,11 @@
 							<build>
 								<from>mongo:latest</from>
 							</build>
+							<run>
+								<ports>
+									<port>27017:27017</port>
+								</ports>
+							</run>
 						</image>
 					</images>
 				</configuration>
@@ -131,6 +136,11 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<includes>
+						<include>**/*ITest.java</include>
+					</includes>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

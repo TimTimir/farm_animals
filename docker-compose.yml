@@ -2,6 +2,11 @@ version: '3'
 services:
   animals:
     build: ./
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    ports:
+     - "8080:8080"
+     - "9080:9080"
     links:
       - mongo
   mongo:

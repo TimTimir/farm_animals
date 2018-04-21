@@ -10,6 +10,7 @@ import net.caimito.farm.animals.Animal;
 
 @Component
 public class AnimalInventory {
+	
 	private AnimalRepository repository ;
 	
 	public AnimalInventory(AnimalRepository animalRepository) {
