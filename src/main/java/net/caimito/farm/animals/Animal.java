@@ -7,7 +7,6 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Animal {
 
 	private String eid;
-	private Seller origin;
 	private Species species;
 
 	public Animal(Species species, String eid) {
@@ -32,14 +31,6 @@ public class Animal {
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
-	}
-
-	public boolean isOfOrigin(Seller seller) {
-		return seller.equals(origin) ;
-	}
-
-	public void setOrigin(Seller seller) {
-		this.origin = seller ;
 	}
 
 	public Species getSpecies() {

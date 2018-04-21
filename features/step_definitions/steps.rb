@@ -1,6 +1,6 @@
 When("I buy a {string} with eid {string} from {string}") do |species, eid, seller|
-  visit(AddAnimalPage) do |page|
-    page.species = species
+  visit(BuyAnimalPage) do |page|
+    page.species = species.upcase
     page.eid = eid
     page.seller = seller
     page.save

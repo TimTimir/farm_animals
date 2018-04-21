@@ -4,15 +4,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class FarmManager {
-	private Map<String, Animal> animals = new HashMap<>() ;
+	private Map<String, AnimalOriginAware> animals = new HashMap<>() ;
 
 	public void purchaseFrom(Animal animal, Seller seller) {
-		animal.setOrigin(seller) ;
-		animals.put(animal.getEid(), animal) ;
+		AnimalOriginAware originAwareAnimal = new AnimalOriginAware(animal, seller) ;
+		animals.put(originAwareAnimal.getEid(), originAwareAnimal) ;
 	}
 
-	public Collection<Animal> listAnimalInventory() {
+	public Collection<AnimalOriginAware> listAnimalInventory() {
 		return animals.values() ;
 	}
 

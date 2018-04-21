@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Animals on the farm</title>
+	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+	<link rel="stylesheet" th:href="@{/css/animals.css}"/>
 </head>
 <body>
-    <h1>Animals on the farm</h1>
-
-    <table id="animals">
-
-    </table>
+	<div class="left-sidebar-content ">
+		<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+		<div>
+		    <h1>Animals on the farm</h1>
+		
+		    <table id="animals" th:unless="${#lists.isEmpty(animals)}">
+			<thead>
+				<tr>
+					<th>EID</th>
+					<th>Species</th>
+				</tr>
+			</thead>
+			<tbody th:each="animal : ${animals}">
+				<tr>
+					<td th:text="${animal.eid}">EID</td>
+					<td th:text="${animal.species}">Species</td>
+				</tr>
+			</tbody>
+		    </table>
+		</div>
+	</div>
 </body>
 </html>

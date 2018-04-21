@@ -1,0 +1,18 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <body>
+			<div th:fragment="sidebar">
+				<ul>
+					<li>
+						<span class="section">Animals</span>
+						<ul>
+							<li><a href="#" th:href="@{/ui}">List</a></li>
+							<li><a href="#" th:href="@{/ui/buy}">Buy</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+  </body>
+</html>

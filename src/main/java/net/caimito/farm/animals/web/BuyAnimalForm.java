@@ -1,12 +1,23 @@
 package net.caimito.farm.animals.web;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import net.caimito.farm.animals.Animal;
 import net.caimito.farm.animals.Seller;
 import net.caimito.farm.animals.Species;
 
-public class AnimalForm {
+public class BuyAnimalForm {
+	
+	@NotBlank
 	private String seller ;
+
+	@NotBlank
 	private String species ;
+
+	@NotBlank
 	private String eid ;
 	
 	public String getSeller() {
@@ -27,11 +38,17 @@ public class AnimalForm {
 	public void setEid(String eid) {
 		this.eid = eid;
 	}
-
-	public Animal readForm() {
-		Animal animal = new Animal(Species.valueOf(species), eid) ;
-		animal.setOrigin(new Seller(this.seller)) ;
-		return animal ;
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this) ;
 	}
 
+	public Animal readAnimal() {
+		return new Animal(Species.valueOf(species), eid) ;
+	}
+	public Seller readSeller() {
+		return new Seller(seller) ;
+	}
+	
 }

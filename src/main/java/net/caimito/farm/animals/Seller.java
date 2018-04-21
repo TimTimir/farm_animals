@@ -27,4 +27,8 @@ public class Seller {
 		return ToStringBuilder.reflectionToString(this);
 	}
 
+	public String getName() {
+		return name ;
+	}
+
 }
