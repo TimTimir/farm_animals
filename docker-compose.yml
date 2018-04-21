@@ -1,0 +1,8 @@
+version: '3'
+services:
+  animals:
+    build: ./
+    links:
+      - mongo
+  mongo:
+    image: mongo
