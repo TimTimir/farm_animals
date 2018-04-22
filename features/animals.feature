@@ -11,9 +11,16 @@ Feature: Work with animals
   Scenario: Vaccinate
 
   Scenario: Death
+    Given a "sheep" with eid "abc" exists on the farm
+    When the "sheep" with eid "abc" is reported as dead
+    Then the "sheep" with eid "abc" is no longer on the farm
 
   Scenario: Illness treatment
 
   Scenario: Medical history
 
   Scenario: Growth history
+
+  Scenario: Find details about animal
+    Given a "sheep" with eid "abc" exists on the farm
+    

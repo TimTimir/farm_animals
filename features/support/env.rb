@@ -2,9 +2,12 @@ require 'watir'
 require 'page-object'
 require 'page-object/page_factory'
 require 'rspec/expectations'
+require 'fileutils'
+require 'rest_client'
+require 'json'
 
 #BASE_URL="file://#{Dir.pwd}/features/support/mockups"
-BASE_URL="http://localhost:8080/animals/ui"
+BASE_URL="http://localhost:8080/animals"
 SCREENSHOTS_DIR="#{Dir.pwd}/target/cucumber"
 
 FileUtils.remove_dir SCREENSHOTS_DIR, true
@@ -19,6 +22,7 @@ end
 Before do
   @browser = browser
   @browser.cookies.clear
+  clear_data
 end
 
 After do |scenario|

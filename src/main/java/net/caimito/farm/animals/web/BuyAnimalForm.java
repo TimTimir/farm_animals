@@ -1,7 +1,6 @@
 package net.caimito.farm.animals.web;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 

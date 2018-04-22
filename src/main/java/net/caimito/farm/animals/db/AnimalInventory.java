@@ -27,11 +27,16 @@ public class AnimalInventory {
 		return animals ;
 	}
 
-	public void store(Animal animal) {
+	public String store(Animal animal) {
 		AnimalEntity entity = AnimalEntity.instanceFrom(animal) ;
 		entity.setId(UUID.randomUUID().toString()) ;
 		
 		repository.save(entity) ;
+		return entity.getId() ;
+	}
+
+	public void removeAll() {
+		repository.deleteAll();
 	}
 
 }

@@ -9,7 +9,7 @@ class BuyAnimalPage
   page_url :my_page_url
 
   def my_page_url
-    "#{BASE_URL}/buy"
+    "#{BASE_URL}/ui/buy"
   end
 
 end
