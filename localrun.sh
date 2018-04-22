@@ -48,6 +48,7 @@ do
           exit 0
           ;;
       up)
+      	  ./localDevEnvironment.sh down
           docker_up
           exit 0
           ;;
@@ -56,6 +57,7 @@ do
           exit 0
           ;;
       rebuild)
+      	  ./localDevEnvironment.sh down
           docker_down
           build_jars
           docker_build_up
