@@ -24,3 +24,17 @@ end
 Then("the {string} with eid {string} is no longer on the farm") do |species, eid|
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+When("I search for the animal with eid {string}") do |eid|
+  visit(SearchPage) do |page|
+    page.eid = eid
+    page.search
+  end
+end
+
+Then("I see details about a {string} with eid {string}") do |species, eid|
+  on(DetailsPage) do |page|
+    expect(page.species).to be_eql(species.upcase)
+    expect(page.eid).to be_eql(eid)
+  end
+end

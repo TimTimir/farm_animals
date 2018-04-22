@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search for animal</title>
+	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+	<link rel="stylesheet" th:href="@{/css/animals.css}"/>
+</head>
+<body>
+	<div class="left-sidebar-content ">
+		<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+		<div>
+		    <h1>Search for animal</h1>
+		
+			<form action="#" method="post" th:action="@{/ui/search}" th:object="${searchForm}">
+			<ul class="form">
+				<li>
+					<label>EID <span class="required">*</span></label>
+					<input type="text" th:field="*{eid}" id="eid" placeholder="EID of the animal" size="60"></input>
+					<span th:if="${#fields.hasErrors('eid')}" th:errors="*{eid}" th:errorclass="fieldError">Error</span>
+				</li>
+				<li>
+					<input type="submit" value="Search" id="search"/>
+				</li>
+			</ul>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

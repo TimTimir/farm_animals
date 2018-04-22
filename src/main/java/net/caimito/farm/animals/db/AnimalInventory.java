@@ -39,4 +39,8 @@ public class AnimalInventory {
 		repository.deleteAll();
 	}
 
+	public Animal searchByEid(String eid) {
+		return repository.findByEid(eid).convertToAnimal() ;
+	}
+
 }

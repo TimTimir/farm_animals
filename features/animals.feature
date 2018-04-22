@@ -23,4 +23,5 @@ Feature: Work with animals
 
   Scenario: Find details about animal
     Given a "sheep" with eid "abc" exists on the farm
-    
+    When I search for the animal with eid "abc"
+    Then I see details about a "sheep" with eid "abc"

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+	<link rel="stylesheet" th:href="@{/css/animals.css}"/>
+</head>
+<body>
+	<div class="left-sidebar-content ">
+		<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+		<div>
+		    <h1>Details</h1>
+		
+			<ul class="form" th:object="${animal}">
+				<li>
+					<label>Species <span class="required">*</span></label>
+					 <label id="species" th:text="*{species}">Species</label>
+				</li>
+				<li>
+					<label>EID <span class="required">*</span></label>
+					<label th:text="*{eid}" id="eid">EID</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
