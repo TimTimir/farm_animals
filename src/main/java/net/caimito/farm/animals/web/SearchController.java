@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.caimito.farm.animals.Animal;
-import net.caimito.farm.animals.db.AnimalInventory;
+import net.caimito.farm.animals.db.AnimalRepository;
 import springfox.documentation.annotations.ApiIgnore;
 
 @ApiIgnore
@@ -21,7 +21,7 @@ import springfox.documentation.annotations.ApiIgnore;
 public class SearchController {
 	
 	@Autowired
-	private AnimalInventory inventory ;
+	private AnimalRepository inventory ;
 
 	@ModelAttribute("searchForm")
 	public SearchForm getForm() {
@@ -38,7 +38,7 @@ public class SearchController {
 		if (bindingResult.hasErrors())
 			return Views.SEARCH ;
 		else {
-			Animal animal = inventory.searchByEid(form.getEid()) ;
+			Animal animal = inventory.findByEid(form.getEid()).convertToAnimal() ;
 			return String.format("redirect:/ui/details/%s", animal.getEid()) ;
 		}
 	}

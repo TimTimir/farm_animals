@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import net.caimito.farm.animals.Animal;
-import net.caimito.farm.animals.db.AnimalInventory;
+import net.caimito.farm.animals.db.AnimalEntity;
+import net.caimito.farm.animals.db.AnimalRepository;
 
 @RestController
 @RequestMapping("/api/animals")
@@ -24,7 +25,7 @@ public class ApiController {
 	private static final Logger logger = LoggerFactory.getLogger(ApiController.class) ;
 	
 	@Autowired
-	private AnimalInventory inventory ;
+	private AnimalRepository inventory ;
 
 	@PutMapping(consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Animal> addAnimal(@RequestBody Animal animal) {
@@ -32,7 +33,9 @@ public class ApiController {
 		if (animal == null)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST) ;
 		else {
-			String id = inventory.store(animal);
+			AnimalEntity entity = AnimalEntity.instanceFrom(animal) ;
+			inventory.save(entity);
+			String id = entity.getId() ;
 
 			URI location = ServletUriComponentsBuilder
 					.fromCurrentContextPath().path("/api/animals/{id}")
@@ -44,6 +47,6 @@ public class ApiController {
 	
 	@DeleteMapping
 	public void deleteAnimals() {
-		inventory.removeAll() ;
+		inventory.deleteAll() ;
 	}
 }

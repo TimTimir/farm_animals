@@ -12,7 +12,8 @@
 		<div>
 		    <h1>Details</h1>
 		
-			<ul class="form" th:object="${animal}">
+			<form action="#" method="post" th:action="@{/ui/details/{id}(id=${animal.eid})}" th:object="${animal}">
+			<ul class="form">
 				<li>
 					<label>Species <span class="required">*</span></label>
 					 <label id="species" th:text="*{species}">Species</label>
@@ -21,7 +22,11 @@
 					<label>EID <span class="required">*</span></label>
 					<label th:text="*{eid}" id="eid">EID</label>
 				</li>
+				<li>
+					<button type="submit" id="reportDead" name="reportDead">Report Dead</button>
+				</li>
 			</ul>
+			</form>
 		</div>
 	</div>
 </body>

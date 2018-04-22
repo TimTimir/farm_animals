@@ -12,7 +12,8 @@ Feature: Work with animals
 
   Scenario: Death
     Given a "sheep" with eid "abc" exists on the farm
-    When the "sheep" with eid "abc" is reported as dead
+    When I search for the animal with eid "abc"
+    And the animal is reported as dead
     Then the "sheep" with eid "abc" is no longer on the farm
 
   Scenario: Illness treatment

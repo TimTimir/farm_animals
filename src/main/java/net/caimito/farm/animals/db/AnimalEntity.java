@@ -1,5 +1,8 @@
 package net.caimito.farm.animals.db;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.annotation.Id;
 
 import net.caimito.farm.animals.Animal;
@@ -8,14 +11,30 @@ import net.caimito.farm.animals.Species;
 public class AnimalEntity {
 
 	@Id
-	private String id ;
-	
+	private String id;
+
 	private String eid;
 	private String species;
+	private String purchasedFrom;
 
 	public AnimalEntity(String species, String eid) {
-		this.species = species ;
-		this.eid = eid ;
+		this.species = species;
+		this.eid = eid;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		return EqualsBuilder.reflectionEquals(this, obj, true);
+	}
+
+	@Override
+	public int hashCode() {
+		return HashCodeBuilder.reflectionHashCode(this, true);
+	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 
 	public String getId() {
@@ -43,11 +62,19 @@ public class AnimalEntity {
 	}
 
 	public static AnimalEntity instanceFrom(Animal animal) {
-		return new AnimalEntity(animal.getSpecies().toString(), animal.getEid()) ;
+		return new AnimalEntity(animal.getSpecies().toString(), animal.getEid());
 	}
 
 	public Animal convertToAnimal() {
-		return new Animal(Species.valueOf(species), eid) ;
+		return new Animal(Species.valueOf(species), eid);
+	}
+
+	public void setPurchasedFrom(String name) {
+		purchasedFrom = name;
+	}
+	
+	public String getPurchasedFrom() {
+		return purchasedFrom;
 	}
 
 }

@@ -17,12 +17,12 @@ Given("a {string} with eid {string} exists on the farm") do |species, eid|
   RestClient.put "#{BASE_URL}/api/animals", request.to_json, {:content_type => :json}
 end
 
-When("the {string} with eid {string} is reported as dead") do |species, eid|
-  pending # Write code here that turns the phrase above into concrete actions
+When("the animal is reported as dead") do
+  on(DetailsPage).report_dead
 end
 
 Then("the {string} with eid {string} is no longer on the farm") do |species, eid|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(visit(AnimalInventoryPage).animals).not_to include(eid)
 end
 
 When("I search for the animal with eid {string}") do |eid|
