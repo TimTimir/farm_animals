@@ -14,7 +14,7 @@ end
 Given("a {string} with eid {string} exists on the farm") do |species, eid|
   request = { :species => 'SHEEP',
               :eid => 'abc' }
-  RestClient.put "#{BASE_URL}/api/animals", request.to_json, {:content_type => :json}
+  RestClient::Request.execute method: :put, url: "#{BASE_URL}/api/animals", payload: request.to_json, headers: {:content_type => :json}, user: 'user', password: 'password'
 end
 
 When("the animal is reported as dead") do
@@ -41,8 +41,8 @@ end
 
 Given("I am {string}") do |user|
   visit(LoginPage) do |page|
-    page.username = USERS[user].username
-    page.password = USERS[user].password
+    page.username = USERS[user][:username]
+    page.password = USERS[user][:password]
     page.login
   end
 end

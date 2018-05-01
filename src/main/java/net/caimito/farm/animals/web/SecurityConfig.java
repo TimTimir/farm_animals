@@ -21,6 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers(HttpMethod.DELETE, "/api/**").hasRole("USER")
 				.anyRequest().authenticated()
 				.and()
+					.formLogin()
+				.and()
 					.httpBasic();	
 	}
 
