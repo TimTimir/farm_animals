@@ -3,7 +3,7 @@ services:
   animals:
     build: ./
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_PROFILES_ACTIVE=production
     ports:
      - "8080:8080"
      - "9080:9080"

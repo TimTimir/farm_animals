@@ -8,6 +8,9 @@ public class Animal {
 
 	private String eid;
 	private Species species;
+	
+	public Animal() {
+	}
 
 	public Animal(Species species, String eid) {
 		this.species = species ;

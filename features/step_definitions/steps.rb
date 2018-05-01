@@ -38,3 +38,11 @@ Then("I see details about a {string} with eid {string}") do |species, eid|
     expect(page.eid).to be_eql(eid)
   end
 end
+
+Given("I am {string}") do |user|
+  visit(LoginPage) do |page|
+    page.username = USERS[user].username
+    page.password = USERS[user].password
+    page.login
+  end
+end
