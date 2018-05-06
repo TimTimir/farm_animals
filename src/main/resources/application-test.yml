@@ -1,0 +1,15 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level: 
+    net.caimito: DEBUG
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017

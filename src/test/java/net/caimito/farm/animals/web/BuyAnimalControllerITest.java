@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -24,6 +25,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @EnableMongoRepositories(basePackages = "net.caimito.farm.animals.db")
+@ActiveProfiles("test")
 public class BuyAnimalControllerITest {
 
     private MockMvc mockMvc;

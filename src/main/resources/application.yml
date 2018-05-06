@@ -1,0 +1,26 @@
+server:
+  servlet:
+    context-path: "/animals"
+
+logging:
+  level: 
+    net.caimito: WARN
+
+spring:
+  data:
+    mongodb:
+      host: mongo
+      port: 27017
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: 0oaewv61fi0xPP6tG0h7
+            client-secret: K9OLC5n2wePsPk7bf9eZPC5Cb-N0vI2XnmkJyiET
+        provider:
+          okta:
+            authorization-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/authorize
+            token-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/token
+            user-info-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/userinfo
+            jwk-set-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/keys
