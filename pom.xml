@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.caimito.farm</groupId>
 	<artifactId>animals</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -17,7 +17,7 @@
 		<connection>scm:git:git@github.com:snscaimito/farm_animals.git</connection>
 		<url>scm:git:git@github.com:snscaimito/farm_animals.git</url>
 		<developerConnection>scm:git:git@github.com:snscaimito/farm_animals.git</developerConnection>
-	  <tag>v0.0.1</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<distributionManagement>
