@@ -2,6 +2,8 @@ version: '3'
 services:
   animals:
     build: ./
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
     ports:
      - "8080:8080"
      - "9080:9080"

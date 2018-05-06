@@ -14,7 +14,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @ComponentScan(basePackages = "net.caimito.farm")
 @EnableMongoRepositories(basePackages = "net.caimito.farm.animals.db")
-@Import({SecurityConfig.class})
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

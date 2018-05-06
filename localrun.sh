@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker_down() {
-  docker-compose -f docker-compose.yml down --rmi local
+  docker-compose -f docker-compose-test.yml down --rmi local
   if [ $? -ne 0 ]; then
     exit
   fi
@@ -15,15 +15,15 @@ build_jars() {
 }
 
 docker_build_up() {
-  docker-compose -f docker-compose.yml up --build
+  docker-compose -f docker-compose-test.yml up --build
 }
 
 docker_up() {
-  docker-compose -f docker-compose.yml up
+  docker-compose -f docker-compose-test.yml up
 }
 
 docker_replace() {
-  docker-compose -f docker-compose.yml up -d --no-deps --build $1
+  docker-compose -f docker-compose-test.yml up -d --no-deps --build $1
 }
 
 display_help() {

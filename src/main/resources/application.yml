@@ -24,3 +24,8 @@ spring:
             token-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/token
             user-info-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/userinfo
             jwk-set-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/keys
+
+management:
+  server:
+    port: 9080
+    

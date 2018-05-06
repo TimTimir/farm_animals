@@ -25,7 +25,7 @@ import org.springframework.web.context.WebApplicationContext;
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @EnableMongoRepositories(basePackages = "net.caimito.farm.animals.db")
-@ActiveProfiles("test")
+@ActiveProfiles({"test", "localmongo"})
 public class BuyAnimalControllerITest {
 
     private MockMvc mockMvc;
