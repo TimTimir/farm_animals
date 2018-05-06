@@ -6,9 +6,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@Profile("!test")
+@Profile("test")
 @Configuration
-public class OAuth2SecurityConfig extends WebSecurityConfigurerAdapter {
+public class TestSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -16,7 +16,7 @@ public class OAuth2SecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatcher("/**").authorizeRequests()
 			.anyRequest().authenticated()
 			.and()
-				.oauth2Login().permitAll();
+				.formLogin().permitAll();
 	}
 
 	@Override
