@@ -16,8 +16,8 @@ spring:
       client:
         registration:
           okta:
-            client-id: 0oaewv61fi0xPP6tG0h7
-            client-secret: K9OLC5n2wePsPk7bf9eZPC5Cb-N0vI2XnmkJyiET
+            client-id: 0oaexjq9svK77uLc80h7
+            client-secret: 389lu2nhN3B2VK8sYrge7uQzElqINnY4qRnH805_
         provider:
           okta:
             authorization-uri: https://dev-148541.oktapreview.com/oauth2/default/v1/authorize
