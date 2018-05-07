@@ -1,7 +1,7 @@
 version: '3'
 services:
   animals:
-    build: ./
+    image: snscaimito/animals
     ports:
      - "8080:8080"
      - "9080:9080"
