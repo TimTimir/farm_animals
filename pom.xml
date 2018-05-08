@@ -11,6 +11,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<application.version.number>${project.version}</application.version.number>
 	</properties>
 
 	<scm>

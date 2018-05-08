@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About this application</title>
+	<link rel="stylesheet" th:href="@{/webjars/styles/css/main.css}"/>
+	<link rel="stylesheet" th:href="@{/css/animals.css}"/>
+</head>
+<body>
+	<div class="left-sidebar-content ">
+		<div class="sidebar" th:include="navigation/sidebar :: sidebar"></div>
+		<div>
+		    <h1>About this application</h1>
+		
+		    <table>
+			<tbody>
+				<tr>
+					<td>Version:</td>
+					<td th:text="${versionNumber}">Version</td>
+				</tr>
+			</tbody>
+		    </table>
+		</div>
+	</div>
+</body>
+</html>

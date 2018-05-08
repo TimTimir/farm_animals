@@ -28,4 +28,6 @@ spring:
 management:
   server:
     port: 9080
-    
+
+caimito:
+  version: "@application.version.number@"
