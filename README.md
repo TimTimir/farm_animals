@@ -1,3 +1,16 @@
+## Release
+
+	mvn clean install
+	mvn release:clean
+	mvn release:prepare
+	mvn release:perform
+	
+	./releaseContainer
+	docker login
+	docker push snscaimito/animals
+	
+	./deployProduction
+
 ## Profiles
 
 ### Profile "test"
