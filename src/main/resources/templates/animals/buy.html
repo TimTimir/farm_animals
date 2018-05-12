@@ -13,31 +13,62 @@
 		    <h1>Buy animal from a seller</h1>
 		
 			<form action="#" method="post" th:action="@{/ui/buy}" th:object="${animal}">
-			<ul class="form">
-				<li>
-					<label>Species <span class="required">*</span></label>
-					 <select id="species" th:field="*{species}">
-                         <option value=""> -- </option>
-                         <option th:each="species : ${knownSpecies}"
-                            th:value="${species}"
-                            th:utext="${species}"/>
-                  	</select>
-                  	<span th:if="${#fields.hasErrors('species')}" th:errors="*{species}" th:errorclass="fieldError">Error</span>
-				</li>
-				<li>
-					<label>EID <span class="required">*</span></label>
-					<input type="text" th:field="*{eid}" id="eid" placeholder="EID of the animal" size="60"></input>
-					<span th:if="${#fields.hasErrors('eid')}" th:errors="*{eid}" th:errorclass="fieldError">Error</span>
-				</li>
-				<li>
-					<label>Seller <span class="required">*</span></label>
-					<input type="text" th:field="*{seller}" id="seller" placeholder="Who sold the animal" size="60"></input>
-					<span th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}" th:errorclass="fieldError">Error</span>
-				</li>
-				<li>
-					<input type="submit" value="Save" id="save"/>
-				</li>
-			</ul>
+			<div class="side-by-side">
+				<ul class="form">
+					<li>
+						<h2>Essential information</h2>
+					</li>
+					<li>
+						<label>Species <span class="required">*</span></label>
+						<select id="species" th:field="*{species}">
+                         	<option value=""> -- </option>
+                         	<option th:each="species : ${knownSpecies}"
+                            	th:value="${species}"
+                            	th:utext="${species}"/>
+                  		</select>
+	                  	<span th:if="${#fields.hasErrors('species')}" th:errors="*{species}" th:errorclass="fieldError">Error</span>
+					</li>
+					<li>
+						<label>EID <span class="required">*</span></label>
+						<input type="text" th:field="*{eid}" id="eid" placeholder="EID of the animal" size="60"></input>
+						<span th:if="${#fields.hasErrors('eid')}" th:errors="*{eid}" th:errorclass="fieldError">Error</span>
+					</li>
+					<li>
+						<label>Sex <span class="required">*</span></label>
+						<input type="radio" name="sex" value="MALE">Male</input>
+						<input type="radio" name="sex" value="FEMALE">Female</input>
+					</li>
+					<li>
+						<label>Seller <span class="required">*</span></label>
+						<input type="text" th:field="*{seller}" id="seller" placeholder="Who sold the animal" size="60"></input>
+						<span th:if="${#fields.hasErrors('seller')}" th:errors="*{seller}" th:errorclass="fieldError">Error</span>
+					</li>
+					<li>
+						<input type="submit" value="Save" id="save"/>
+					</li>
+					</ul>
+
+					<ul class="form">
+					<li>
+						<h2>Supplemental details</h2>
+					</li>
+					<li>
+						<label>Name</label>
+						<input type="text" id="name" size="40" placeholder="How is animal usually called?" th:field="*{name}"></input>
+						<span th:if="${#fields.hasErrors('seller')}" th:errors="*{name}" th:errorclass="fieldError">Error</span>
+					</li>
+					<li>
+						<label>Race</label>
+						<input type="text" id="race" size="60" placeholder="Race within the given species?" th:field="*{race}"></input>
+						<span th:if="${#fields.hasErrors('seller')}" th:errors="*{race}" th:errorclass="fieldError">Error</span>
+					</li>
+					<li>
+						<label>Color</label>
+						<input type="text" id="color" size="60" placeholder="What is the color of the coat?" th:field="*{color}"></input>
+						<span th:if="${#fields.hasErrors('seller')}" th:errors="*{color}" th:errorclass="fieldError">Error</span>
+					</li>
+					</ul>
+				</div>
 			</form>
 		</div>
 	</div>

@@ -22,6 +22,10 @@ public class BuyAnimalFormTest {
 		form.setEid("eid");
 		form.setSeller("Juan");
 		form.setSpecies(Species.SHEEP.toString());
+		form.setSex("MALE");
+		form.setName("Apolo");
+		form.setRace("Pura Raza Espanola");
+		form.setColor("White");
 	}
 	
 	@Test
@@ -31,6 +35,10 @@ public class BuyAnimalFormTest {
 		assertThat(animal, is(not(nullValue())));
 		assertThat(animal.getEid(), is(form.getEid())) ;
 		assertThat(animal.getSpecies().toString(), is(form.getSpecies())) ;
+		assertThat(animal.getSex().toString(), is(form.getSex())) ;
+		assertThat(animal.getName(), is(form.getName())) ;
+		assertThat(animal.getRace(), is(form.getRace())) ;
+		assertThat(animal.getColor(), is(form.getColor())) ;
 	}
 	
 	@Test

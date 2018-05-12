@@ -1,19 +1,43 @@
-When("I buy a {string} with eid {string} from {string}") do |species, eid, seller|
+When("I buy a {string} {string} with eid {string} from {string}") do |sex, species, eid, seller|
   visit(BuyAnimalPage) do |page|
     page.species = species.upcase
     page.eid = eid
+
+    page.select_male if sex.upcase.eql?('MALE')
+    page.select_female if sex.upcase.eql?('FEMALE')
+
     page.seller = seller
     page.save
   end
 end
 
-Then("the sheep with eid {string} is at the farm") do |eid|
+When("I buy a {string} {string} with eid {string} from {string} with details:") do |sex, species, eid, seller, details|
+  visit(BuyAnimalPage) do |page|
+    page.species = species.upcase
+    page.eid = eid
+    page.seller = seller
+
+    page.select_male if sex.upcase.eql?('MALE')
+    page.select_female if sex.upcase.eql?('FEMALE')
+
+    row = details.hashes.first
+    page.name = row['Name']
+    page.race = row['Race']
+    page.color = row['Color']
+
+    page.save
+  end
+end
+
+Then("the animal with eid {string} is at the farm") do |eid|
   expect(visit(AnimalInventoryPage).animals).to include(eid)
 end
 
-Given("a {string} with eid {string} exists on the farm") do |species, eid|
-  request = { :species => 'SHEEP',
-              :eid => 'abc' }
+Given("a {string} {string} with eid {string} exists on the farm") do |sex, species, eid|
+  request = { :species => species.upcase,
+              :eid => eid,
+              :sex => sex.upcase}
+
   RestClient::Request.execute method: :put, url: "#{BASE_URL}/api/animals", payload: request.to_json, headers: {:content_type => :json}, user: 'user', password: 'password'
 end
 
@@ -44,5 +68,12 @@ Given("I am {string}") do |user|
     page.username = USERS[user][:username]
     page.password = USERS[user][:password]
     page.login
+  end
+end
+
+And("the details stored for the animal with eid {string} are:") do |eid, details|
+  step "I search for the animal with eid \"#{eid}\""
+  on(DetailsPage) do |page|
+    details.diff!(page.details_element.hashes)
   end
 end

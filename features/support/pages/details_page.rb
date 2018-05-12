@@ -6,6 +6,8 @@ class DetailsPage
 
   button(:report_dead, :id => 'reportDead')
 
+  table(:details, :id => 'details')
+
   page_url :my_page_url
 
   def my_page_url

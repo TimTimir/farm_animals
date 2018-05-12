@@ -5,7 +5,7 @@
 	mvn release:prepare
 	mvn release:perform
 	
-	./releaseContainer
+	./releaseContainer <version>
 	docker login
 	docker push snscaimito/animals
 	

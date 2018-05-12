@@ -13,19 +13,50 @@
 		    <h1>Details</h1>
 		
 			<form action="#" method="post" th:action="@{/ui/details/{id}(id=${animal.eid})}" th:object="${animal}">
-			<ul class="form">
-				<li>
-					<label>Species <span class="required">*</span></label>
-					 <label id="species" th:text="*{species}">Species</label>
-				</li>
-				<li>
-					<label>EID <span class="required">*</span></label>
-					<label th:text="*{eid}" id="eid">EID</label>
-				</li>
-				<li>
-					<button type="submit" id="reportDead" name="reportDead">Report Dead</button>
-				</li>
-			</ul>
+			<div class="side-by-side">
+				<ul class="form">
+					<li>
+						<h2>Essential information</h2>
+					</li>
+					<li>
+						<label>Species</label>
+						 <label id="species" th:text="*{species}">Species</label>
+					</li>
+					<li>
+						<label>EID</label>
+						<label th:text="*{eid}" id="eid">EID</label>
+					</li>
+					<li>
+						<button type="submit" id="reportDead" name="reportDead">Report Dead</button>
+					</li>
+					</ul>
+
+					<ul class="form">
+					<li>
+						<h2>Supplemental details</h2>
+					</li>
+					<li>
+						<table id="details">
+						<thead>
+							<tr>
+								<th>Sex</th>
+								<th>Name</th>
+								<th>Race</th>
+								<th>Color</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td th:text="*{sex}">Sex</td>
+								<td th:text="*{name}">Name</td>
+								<td th:text="*{race}">Race</td>
+								<td th:text="*{color}">Color</td>
+							</tr>
+						</tbody>
+						</table>
+					</li>
+				</ul>
+			</div>
 			</form>
 		</div>
 	</div>

@@ -1,3 +1,10 @@
 .fieldError {
 	color: red
 }
+
+.side-by-side {
+    display: grid;
+    grid-auto-columns: 400px;
+    grid-auto-flow: column ;
+    grid-column-gap: 20px;
+}

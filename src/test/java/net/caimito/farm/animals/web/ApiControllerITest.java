@@ -69,7 +69,7 @@ public class ApiControllerITest {
         MockHttpServletRequestBuilder ops = put("/api/animals")
         		.with(httpBasic("user","password"))
         		.contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
-        		.content("{ \"species\": \"SHEEP\", \"eid\": \"abc\" }");
+        		.content("{ \"species\": \"SHEEP\", \"eid\": \"abc\", \"sex\": \"MALE\" }");
 
         mockMvc.perform(ops)
             .andExpect(status().isCreated())

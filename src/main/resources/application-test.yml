@@ -7,7 +7,6 @@ management:
 logging:
   level: 
     net.caimito: DEBUG
-    org.springframework.security: DEBUG
 
 spring:
   security:

@@ -1,7 +1,10 @@
 version: '3'
 services:
   animals:
-    build: ./
+    build: 
+      context: ./
+      args:
+        - VERSION
     environment:
       - SPRING_PROFILES_ACTIVE=test
     ports:

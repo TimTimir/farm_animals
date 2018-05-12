@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION="unknown"
+
 docker_down() {
   docker-compose -f docker-compose-test.yml down --rmi local
   if [ $? -ne 0 ]; then
@@ -12,9 +14,11 @@ build_jars() {
   if [ $? -ne 0 ]; then
     exit
   fi
+  VERSION=`mvn help:evaluate -Dexpression=project.version | grep -e '^[^\[]'`
 }
 
 docker_build_up() {
+  export VERSION
   docker-compose -f docker-compose-test.yml up --build
 }
 
@@ -23,6 +27,7 @@ docker_up() {
 }
 
 docker_replace() {
+  export VERSION
   docker-compose -f docker-compose-test.yml up -d --no-deps --build $1
 }
 
@@ -64,6 +69,7 @@ do
           exit 0
           ;;
       replace)
+          build_jars
           docker_replace $2
           exit 0
           ;;
