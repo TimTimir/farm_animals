@@ -1,0 +1,21 @@
+version: '3'
+services:
+  animals:
+    image: snscaimito/animals
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+    ports:
+     - "8080:8080"
+     - "9080:9080"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - 'mongo_data:/data/db'
+
+volumes:
+  mongo_data:
+    driver: local

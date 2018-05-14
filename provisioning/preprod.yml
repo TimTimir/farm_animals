@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  gather_facts: no
+  become: yes
+
+  pre_tasks:
+    - raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+    - setup: # aka gather_facts
+
+  tasks:
+  - name: Adding existing user vagrant to group docker
+    user: name=vagrant
+        groups=docker
+        append=yes
+
+  roles:
+    - docker
+    
