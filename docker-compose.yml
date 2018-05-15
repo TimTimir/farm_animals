@@ -13,6 +13,7 @@ services:
     restart: unless-stopped
     volumes:
       - 'mongo_data:/data/db'
+      - ./backup:/backup
 
 volumes:
   mongo_data:

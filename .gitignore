@@ -4,6 +4,6 @@ Gemfile.lock
 .idea/
 .settings/
 target/
-.log
-.retry
+*.retry
 .vagrant/
+*.log
